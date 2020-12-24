@@ -4,7 +4,7 @@ require 'db.php' ;
 $status = 'error'; 
 $errors=array();
 if(!empty($_POST)){
-$req=$pdo ->prepare('SELECT * FROM users WHERE username = :username AND password = :password ');
+$req=$pdo ->prepare('SELECT * FROM users,employee WHERE users.username = :username AND users.password = :password OR employee.username = :username AND employee.password = :password  ');
 $req->execute(['username' => $_POST['username'],'password'=>$_POST['password']]);
 $user = $req->fetch();
  if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){ 
@@ -13,7 +13,6 @@ $user = $req->fetch();
              
             // Verify the reCAPTCHA response 
             $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$_POST['g-recaptcha-response']); 
-             
             // Decode json data 
             $responseData = json_decode($verifyResponse); 
              
