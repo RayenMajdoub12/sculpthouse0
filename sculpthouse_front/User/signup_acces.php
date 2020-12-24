@@ -83,7 +83,7 @@ if(!empty($_POST)){
 
     $mail->isHTML(true);
     $mail->Subject = 'Verification Mail';
-    $mail->Body = "<h3>Hi  $name <br>click on this link to  http://localhost/sculpthouse_front/confirm.php?id=$user_id&token=$token <br>Thanks for joining Sculpt House family </h3>";
+    $mail->Body = "<h3>Hi  $name <br>click on this link to  http://localhost/sculpthouse/sculpthouse_front/confirm.php?id=$user_id&token=$token <br>Thanks for joining Sculpt House family </h3>";
 
     $mail->send();
     $output = '<div class="alert alert-success">
