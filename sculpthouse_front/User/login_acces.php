@@ -4,7 +4,7 @@ require 'db.php' ;
 $status = 'error'; 
 $errors=array();
 if(!empty($_POST)){
-$req=$pdo ->prepare('SELECT * FROM users,employee WHERE users.username = :username AND users.password = :password OR employee.username = :username AND employee.password = :password  ');
+$req=$pdo ->prepare('SELECT * FROM users WHERE users.username = :username AND users.password = :password UNION SELECT * FROM employee WHERE employee.username = :username AND employee.password = :password  ');
 $req->execute(['username' => $_POST['username'],'password'=>$_POST['password']]);
 $user = $req->fetch();
  if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){ 
@@ -50,6 +50,5 @@ else{
        <li> <?= $error; ?>   </li>
     <?php endforeach; ?>
     
-    <?php
-endif; ?>
+    <?php endif; ?>
 

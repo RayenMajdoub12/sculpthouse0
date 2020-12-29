@@ -324,8 +324,9 @@ header('location:login.php');
               <span>Data Tables</span>
               </a>
             <ul class="sub">
-              <li><a href="basic_table.php">Clients Table</a></li>
+              <li><a href="user_table.php">Clients Table</a></li>
               <li><a href="job_app.php">Job Applications</a></li>
+              <li><a href="employee.php">Employees</a></li>
               <li><a href="responsive_table.php">Responsive Table</a></li>
               <li><a href="advanced_table.php">Advanced Table</a></li>
             </ul>

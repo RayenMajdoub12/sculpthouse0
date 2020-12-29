@@ -1,6 +1,6 @@
 <?php require 'header_sidebar.php' ;
       require 'db.php' ;
-      $req=$pdo ->prepare('SELECT * FROM users WHERE id=:num LIMIT 1');
+      $req=$pdo ->prepare('SELECT * FROM employee WHERE id=:num LIMIT 1');
       $req->bindValue(':num',$_GET['id'],PDO::PARAM_INT);
        $executedone=$req->execute();
        $user=$req->fetch();
@@ -22,51 +22,21 @@
               <div class="form">
                 <form class="cmxform form-horizontal style-form"  method="POST" action="edit.php">
                 <div class="form-group ">
-                    <label for="firstname" class="control-label col-lg-2">ID </label>
+                    <label for="id" class="control-label col-lg-2">ID </label>
                     <div class="col-lg-10">
                       <input class=" form-control" name="id" type="text" value="<?= $user->id;?>"/>
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="firstname" class="control-label col-lg-2">Firstname </label>
+                    <label for="salary" class="control-label col-lg-2">Salary </label>
                     <div class="col-lg-10">
-                      <input class=" form-control" name="firstname" type="text" value="<?= $user->firstname;?>"/>
+                      <input class=" form-control" name="salary" type="int" value="<?= $user->salary;?>"/>
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="lastname" class="control-label col-lg-2">Lastname</label>
+                    <label for="missed_days" class="control-label col-lg-2">Missed days</label>
                     <div class="col-lg-10">
-                      <input class=" form-control"  name="lastname" type="text"  value="<?= $user->lastname;?>"/>
-                    </div>
-                  </div>
-                  <div class="form-group ">
-                    <label for="username" class="control-label col-lg-2">Username</label>
-                    <div class="col-lg-10">
-                      <input class="form-control "  name="username" type="text" value="<?= $user->username;?>"/>
-                    </div>
-                  </div>
-                  <div class="form-group ">
-                    <label for="password" class="control-label col-lg-2">Password</label>
-                    <div class="col-lg-10">
-                      <input class="form-control "  name="password" type="text" value="<?= $user->password;?>"/>
-                    </div>
-                  </div>
-                  <div class="form-group ">
-                    <label for="email" class="control-label col-lg-2">Email</label>
-                    <div class="col-lg-10">
-                      <input class="form-control "  name="email" type="email" value="<?= $user->email;?>"/>
-                    </div>
-                  </div>
-                  <div class="form-group ">
-                    <label for="agree" class="control-label col-lg-2 col-sm-3">Agree to Our Policy</label>
-                    <div class="col-lg-10 col-sm-9">
-                      <input type="checkbox" style="width: 20px" class="checkbox form-control"  />
-                    </div>
-                  </div>
-                  <div class="form-group ">
-                    <label for="newsletter" class="control-label col-lg-2 col-sm-3">Receive the Newsletter</label>
-                    <div class="col-lg-10 col-sm-9">
-                      <input type="checkbox" style="width: 20px" class="checkbox form-control" />
+                      <input class=" form-control"  name="missed_days" type="int"  value="<?= $user->missed_days;?>"/>
                     </div>
                   </div>
                   <div class="form-group">

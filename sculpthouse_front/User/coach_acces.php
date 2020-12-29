@@ -58,12 +58,13 @@ if(!empty($_POST)){
         $errors['checkbox'] = 'Please check on the reCAPTCHA box.'; 
     } 
 }
-     
+      
  if(empty($errors) && $status!='error')
  {
- $req=$pdo ->prepare("INSERT INTO job_app SET firstname = ?,lastname = ?,birthday = ?,phone = ? ,email = ?  , username = ? , gender = ?,work= ?,speciality = ? ,cv = ? ,online = ? , password = ?,confirmation_token = ?" );  
+   $type='employee';
+ $req=$pdo ->prepare("INSERT INTO job_app SET firstname = ?,lastname = ?,birthday = ?,phone = ? ,email = ?  , username = ? , gender = ?,work= ?,country = ? , zipcode = ? ,speciality = ? ,cv = ? ,online = ? , password = ?,confirmation_token = ?,type = ?" );  
  $token= str_random(20); 
- $req->execute([$_POST['firstname'],$_POST['lastname'],$_POST['birthday'],$_POST['phone'],$_POST['email'],$_POST['username'],$_POST['gender'],$_POST['work'],$_POST['speciality'],$_POST['cv'],$_POST['online'],$_POST['password'],$token]);
+ $req->execute([$_POST['firstname'],$_POST['lastname'],$_POST['birthday'],$_POST['phone'],$_POST['email'],$_POST['username'],$_POST['gender'],$_POST['work'],$_POST['country'],$_POST['zipcode'],$_POST['speciality'],$_POST['cv'],$_POST['online'],$_POST['password'],$token,$type]);
  $user_id = $pdo->lastInsertId(); 
  try {
     $mail->isSMTP();

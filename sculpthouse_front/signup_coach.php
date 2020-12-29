@@ -88,8 +88,20 @@ $secretkey='6Lc5-gQaAAAAANN71A2RpZg1F-N9-AA8aAYuoSUq';
 
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="small mb-1" for="speciality">speciality</label>
-													<input class="form-control py-4"  name="speciality" type="text" placeholder="Entrer your speciality" required />
+													<label class="small mb-1" for="speciality">Speciality</label>
+													<input class="form-control py-4"  name="speciality" type="text" placeholder="Entrer your Speciality" required />
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="small mb-1" for="country">Country</label>
+													<input class="form-control py-4"  name="country" type="text" placeholder="Entrer your Country" required />
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="small mb-1" for="zipcode">Zipcode</label>
+													<input class="form-control py-4"  name="zipcode" type="int" placeholder="Entrer your Zipcode" required />
 												</div>
 											</div>
 									

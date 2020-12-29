@@ -1,6 +1,6 @@
 <?php require 'header_sidebar.php' ;
       require 'db.php' ;
-      $req=$pdo ->prepare('SELECT * FROM job_app ');
+      $req=$pdo ->prepare('SELECT * FROM employee ');
        $req->execute();
        $listeUsers=$req->fetchall();
 ?>
@@ -24,15 +24,17 @@
                     <th><i class="fa fa-user"></i> First Name </th>
                     <th ><i class="fa fa-user"></i> Last Name</th>
                     <th><i class="fa fa-calendar-o"></i> Birthday</th>
-                    <th><i class=" fa fa-male"></i> Gender</th>
                     <th><i class="fa fa-phone"></i> Phone </th>
                     <th><i class="fa fa-envelope"></i> Email </th>
-                    <th><i class="fa fa-globe"></i> Country </th>
-                    <th><i class="fa fa-info"></i> Zip code </th>
                     <th><i class="fa fa-globe"></i> Coach/Chef </th>
                     <th><i class="fa fa-info"></i> Speciality </th>
-                    <th><i class=" fa fa-male"></i> CV</th>
-                    <th><i class=" fa fa-male"></i> Work Online</th>
+                    <th><i class=" fa fa-male"></i> Gender</th>
+                    <th><i class="fa fa-globe"></i> Country </th>
+                    <th><i class="fa fa-info"></i> Zip code </th>
+                    <th><i class=" fa fa-laptop"></i> Work Online</th>
+                    <th><i class="fa fa-calendar-o"></i> Confirmed At</th>
+                    <th><i class="fa fa-dollar"></i> Salary</th>
+                    <th><i class="fa fa-calendar-o"></i> Missed Days</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -42,23 +44,25 @@
 				foreach($listeUsers as $user):
 			?>
                   <tr>
-                    <td><?= $user->id; ?></td>
-                    <td><?= $user->username; ?></td>
-				          	<td><?= $user->firstname ?></td>
-				          	<td><?= $user->lastname ?></td>
-				          	<td><?= $user->birthday ?></td>
+                  <td><?= $user->id; ?></td>
+                  <td><?= $user->username; ?></td>
+					<td><?= $user->firstname ?></td>
+					<td><?= $user->lastname ?></td>
+					<td><?= $user->birthday ?></td>
+					<td><?= $user->phone ?></td>
+					<td><?= $user->email ?></td>
+					<td><?= $user->work ?></td>
+					<td><?= $user->speciality ?></td>
                     <td><?= $user->gender ?></td>
-				          	<td><?= $user->phone ?></td>
-				          	<td><?= $user->email ?></td>
                     <td><?= $user->country ?></td>
-				           	<td><?= $user->zipcode ?></td>
-				          	<td><?= $user->work ?></td>
-				          	<td><?= $user->speciality ?></td>
-                    <td><?= $user->cv ?></td>
+					<td><?= $user->zipcode ?></td>
                     <td><?= $user->online ?></td>
+                    <td><?= $user->confirmed_at ?></td>
+                    <td><?= $user->salary ?></td>
+                    <td><?= $user->missed_days ?></td>
                     <td>
-                    <button class="btn btn-success btn-xs" onclick="window.location.href = 'accept.php?id=<?= $user->id ?>';"><i class="fa fa-check"></i></button>
-                      <button class="btn btn-danger btn-xs" onclick="window.location.href = 'delete_jobapp.php?id=<?= $user->id ?>';"> <i class="fa fa-trash-o "></i></button>
+                    <button class="btn btn-success btn-xs" onclick="window.location.href = 'edit_empl.php?id=<?= $user->id ?>';"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger btn-xs" onclick="window.location.href = 'delete_employee.php?id=<?= $user->id ?>';"> <i class="fa fa-trash-o "></i></button>
                       
                    </td>
                   </tr>

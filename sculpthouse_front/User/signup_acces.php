@@ -61,9 +61,10 @@ if(!empty($_POST)){
      
  if(empty($errors) && $status!='error')
  {
- $req=$pdo ->prepare("INSERT INTO users SET firstname = ?,lastname = ?,birthday = ?,phone = ? ,email = ? , height = ? , weight = ?, goalweight = ? , sport = ? , country = ? , zipcode = ? , username = ? , gender = ? , password = ?,confirmation_token = ?" );  
+   $type='user';
+ $req=$pdo ->prepare("INSERT INTO users SET firstname = ?,lastname = ?,birthday = ?,phone = ? ,email = ? , height = ? , weight = ?, goalweight = ? , sport = ? , country = ? , zipcode = ? , username = ? , gender = ? , password = ?,confirmation_token = ?,type=?" );  
  $token= str_random(20); 
- $req->execute([$_POST['firstname'],$_POST['lastname'],$_POST['birthday'],$_POST['phone'],$_POST['email'],$_POST['height'],$_POST['weight'],$_POST['goalweight'],$_POST['sport'],$_POST['country'],$_POST['zipcode'],$_POST['username'],$_POST['gender'],$_POST['password'],$token]);
+ $req->execute([$_POST['firstname'],$_POST['lastname'],$_POST['birthday'],$_POST['phone'],$_POST['email'],$_POST['height'],$_POST['weight'],$_POST['goalweight'],$_POST['sport'],$_POST['country'],$_POST['zipcode'],$_POST['username'],$_POST['gender'],$_POST['password'],$token,$type]);
  $user_id = $pdo->lastInsertId(); 
  try {
     $mail->isSMTP();
