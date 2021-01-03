@@ -1,11 +1,30 @@
 <?php require 'header.php';?>
 <?php 
+if(isset($_GET['errors']))
+
+
+{
+	$errors = unserialize(urldecode($_GET['errors']));
+
+}
 $sitekey ='6Lc5-gQaAAAAAOtB16Ftl-9cJ9yz-gAkM_Eb16y8';
 $secretkey='6Lc5-gQaAAAAANN71A2RpZg1F-N9-AA8aAYuoSUq';
 ?>
 	<div id="fh5co-gallery">
 		<div class="container">
 			<div class="row">
+			<?php if(!empty($errors)):?>
+                  <div class="alert alert-danger">
+                 
+                  <ul>  
+                  <?php foreach($errors as $error):?>
+                     <li><?= $error; ?>   </li>
+                  <?php endforeach; ?>
+                  </ul>
+                 </div>
+                 <?php endif; ?>
+    
+
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Login</h2>
 				</div>

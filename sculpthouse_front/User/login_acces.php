@@ -35,20 +35,18 @@ header('location:../profile.php');
 exit();
 }
 else{
-   
-    $errors['input']='Username or Password incorrect';
-     
+   if($user->confirmed_at==NULL)
+   {
+    $errors['confirm']='Confirm your account';
+   }else{
+ $errors['input']='Username or Password incorrect';
+}  
 
 }
 }
 ?>
-<?php if(!empty($errors)):?>
-    <div class="alert alert-danger">
-    <p> you have not completed the form correctly  </p>
-    <ul>  
-    <?php foreach($errors as $error):?>
-       <li> <?= $error; ?>   </li>
-    <?php endforeach; ?>
-    
-    <?php endif; ?>
+<?php if(!empty($errors))
+
+header("location:../login.php? errors=" . urlencode(serialize($errors)) . " ");
+?>
 

@@ -1,0 +1,46 @@
+.question {
+    margin-top: 2px;
+     border:solid 1px silver;
+     width:970px;
+     margin-left:5px;
+     color: #12377C;
+     height : 100px;
+ 
+	 }
+.question_text {
+    position:absolute;
+   line-height:20px;
+   width:30px;
+   margin-left: 1px;
+   margin-top : 10px;
+   text-align: center;
+   float:left;
+}
+.choice_1 {
+   position:aboslute;
+    text-align: right;
+    width:425px;    
+    line-height:20px;
+    margin-top : 10px;
+    margin-left:33px;
+    float:left;
+}
+.radios{
+    position: absolute;
+    width:80px; 
+    line-height:20px;
+    margin-left:461px;
+    margin-top : 10px;
+    text-align : center;
+    float:left;
+}
+.choice_2 {
+    position:absolute;
+    text-align: left;
+    line-height:20px;
+    width:423px;
+    margin-top : 10px;
+    margin-left: 543px;
+    float:left;
+}
+.clear {clear:both;}

@@ -256,72 +256,21 @@ header('location:login.php');
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.php"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">Sam Soffes</h5>
-          <li class="mt">
-            <a class="active" href="index.php">
-              <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
-              </a>
-            <ul class="sub">
-              <li><a href="general.php">General</a></li>
-              <li><a href="buttons.php">Buttons</a></li>
-              <li><a href="panels.php">Panels</a></li>
-              <li><a href="font_awesome.php">Font Awesome</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Components</span>
-              </a>
-            <ul class="sub">
-              <li><a href="grids.php">Grids</a></li>
-              <li><a href="calendar.php">Calendar</a></li>
-              <li><a href="gallery.php">Gallery</a></li>
-              <li><a href="todo_list.php">Todo List</a></li>
-              <li><a href="dropzone.php">Dropzone File Upload</a></li>
-              <li><a href="inline_editor.php">Inline Editor</a></li>
-              <li><a href="file_upload.php">Multiple File Upload</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>Extra Pages</span>
-              </a>
-            <ul class="sub">
-              <li><a href="blank.php">Blank Page</a></li>
-              <li><a href="login.php">Login</a></li>
-              <li><a href="lock_screen.php">Lock Screen</a></li>
-              <li><a href="profile.php">Profile</a></li>
-              <li><a href="invoice.php">Invoice</a></li>
-              <li><a href="pricing_table.php">Pricing Table</a></li>
-              <li><a href="faq.php">FAQ</a></li>
-              <li><a href="404.php">404 Error</a></li>
-              <li><a href="500.php">500 Error</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Forms</span>
-              </a>
-            <ul class="sub">
-              <li><a href="form_component.php">Form Components</a></li>
-              <li><a href="advanced_form_components.php">Advanced Components</a></li>
-              <li><a href="form_validation.php">Form Validation</a></li>
-              <li><a href="contactform.php">Contact Form</a></li>
-            </ul>
-          </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-th"></i>
-              <span>Data Tables</span>
+              <span>Shop Management</span>
+              </a>
+            <ul class="sub">
+              <li><a href="product_order.php">Shop Data</a></li>
+              <li><a href="add_product.php">Add Products</a></li>
+            </ul>
+          </li>
+        
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-th"></i>
+              <span>User Management</span>
               </a>
             <ul class="sub">
               <li><a href="user_table.php">Clients Table</a></li>

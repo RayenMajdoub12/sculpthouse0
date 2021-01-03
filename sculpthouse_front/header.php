@@ -82,8 +82,8 @@ if(session_status()==PHP_SESSION_NONE ){
 					<div class="col-xs-10 text-right menu-1" style="padding-top: 28px;">
 						<ul>
 							<li class="active"><a href="index.php">Home</a></li>
-							<li><a href="about.php">Trainer</a></li>
-							<li><a href="pricing.php">Pricing</a></li>
+							<li><a href="coaching.php">Trainer</a></li>
+							<li><a href="shop.php">Shop</a></li>
 							
 							<li class="has-dropdown">
 								<a href="blog.php">Blog</a>
@@ -95,9 +95,21 @@ if(session_status()==PHP_SESSION_NONE ){
 								</ul>
 							</li>
 							<li><a href="contact.php">Contact</a></li>
-							<?php if(isset($_SESSION['auth'])):?>
+							<?php if(isset($_SESSION['auth'])&&$_SESSION['auth']->type=='user'):?>
 							    <li><a href="profile.php">My profile</a></li>
 								<li><a href="logout.php">Logout</a></li>
+								<li><a href="panier.php">Shoping Cart</a></li>
+								<?php elseif((isset($_SESSION['auth']))&& ($_SESSION['auth']->type=='employee')):?>
+									<li><a href="profile.php">My profile</a></li>
+								<li><a href="logout.php">Logout</a></li>
+								<li class="has-dropdown">
+								<a href="#">My Workspace</a>
+								<ul class="dropdown">
+							<li><a href="seance.php">Online Session</a></li>
+							<!----ajouter des autre page ici (edoa)--->
+							<li><a href="program.php">Program</a></li>
+							</ul>
+							</li>
 							<?php else :?>
 							<li><a href="login.php">login</a></li>
 							<li class="has-dropdown">
