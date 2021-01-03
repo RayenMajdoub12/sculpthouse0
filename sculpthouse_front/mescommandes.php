@@ -1,9 +1,9 @@
 <?php require 'header.php';?>
 <?php 
-
+echo "hi";
 
 $connect = mysqli_connect("localhost", "root", "", "sculpt");
-$userid = $_SESSION['auth'];
+$userid = $_SESSION['auth']->id;
 $commandes = $connect->query("SELECT * FROM `commandes` WHERE `commandes`.`userid` = '$userid'") or die("db error");
 
 

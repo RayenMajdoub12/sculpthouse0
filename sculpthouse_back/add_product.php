@@ -44,7 +44,7 @@ $req=$pdo ->prepare("INSERT INTO tbl_product SET name = ?,image = ?,price = ? ,q
       }
       
       if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"../sculpthouse_front/imgUploads/ ".$date->getTimestamp().'.'.$file_ext);
+         move_uploaded_file($file_tmp,"../sculpthouse_front/imgUploads/".$date->getTimestamp().'.'.$file_ext);
          echo "Success";
       }else{
          print_r($errors);

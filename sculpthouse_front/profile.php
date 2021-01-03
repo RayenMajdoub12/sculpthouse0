@@ -129,7 +129,9 @@ exit();
 										<?php endif ;?>
 
 <!-----profile of employee------------>
-<?php if($_SESSION['auth']->type =='employee'):?>
+
+<?php var_dump($_SESSION['auth']);
+if($_SESSION['auth']->type =='employee'):?>
 <div id="fh5co-gallery">
 		<div class="container ">
 			<div class="row">

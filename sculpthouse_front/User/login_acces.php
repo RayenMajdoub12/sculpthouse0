@@ -4,10 +4,17 @@ require 'db.php' ;
 $status = 'error'; 
 $errors=array();
 if(!empty($_POST)){
-$req=$pdo ->prepare('SELECT * FROM users WHERE users.username = :username AND users.password = :password UNION SELECT * FROM employee WHERE employee.username = :username AND employee.password = :password  ');
+$req=$pdo ->prepare('SELECT * FROM users WHERE users.username = :username AND users.password = :password');
 $req->execute(['username' => $_POST['username'],'password'=>$_POST['password']]);
 $user = $req->fetch();
- if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){ 
+if(!$user)
+{
+$req=$pdo ->prepare('SELECT * FROM employee WHERE employee.username = :username AND employee.password = :password  ');
+$req->execute(['username' => $_POST['username'],'password'=>$_POST['password']]);
+$user = $req->fetch();
+
+}
+ if(false || isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){ 
             // Google reCAPTCHA API secret key 
             $secretKey = '6Lc5-gQaAAAAANN71A2RpZg1F-N9-AA8aAYuoSUq'; 
              
@@ -17,7 +24,7 @@ $user = $req->fetch();
             $responseData = json_decode($verifyResponse); 
              
             // If reCAPTCHA response is valid 
-            if($responseData->success){ 
+            if(false || $responseData->success){ 
             $status = 'success'; 
             }else{ 
                 $errors['verfication'] = 'Robot verification failed, please try again.'; 
