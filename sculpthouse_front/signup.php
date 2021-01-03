@@ -2,10 +2,29 @@
 <?php 
 $sitekey ='6Lc5-gQaAAAAAOtB16Ftl-9cJ9yz-gAkM_Eb16y8';
 $secretkey='6Lc5-gQaAAAAANN71A2RpZg1F-N9-AA8aAYuoSUq';
+if(isset($_GET['errors']))
+
+
+{
+	$errors = unserialize(urldecode($_GET['errors']));
+
+}
 ?>
+
 	<div id="fh5co-gallery">
 		<div class="container ">
 			<div class="row">
+				
+			<?php if(!empty($errors)):?>
+                  <div class="alert alert-danger">
+                 <p> you have not completed the form correctly  </p>
+                  <ul>  
+                  <?php foreach($errors as $error):?>
+                     <li><?= $error; ?>   </li>
+                  <?php endforeach; ?>
+                  </ul>
+                 </div>
+                 <?php endif; ?>
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Sign Up</h2>
 				</div>
@@ -17,7 +36,7 @@ $secretkey='6Lc5-gQaAAAAANN71A2RpZg1F-N9-AA8aAYuoSUq';
 			<main>
 				<div class="container">
 					<div class="row justify-content-center">
-						
+				
 						
 								<div class="card-body">
 								 <form action="User/signup_acces.php" method="POST">
@@ -139,6 +158,7 @@ $secretkey='6Lc5-gQaAAAAANN71A2RpZg1F-N9-AA8aAYuoSUq';
 				</div>
 			</main>
 		</div>
+
 	
   <?php require_once 'footer.php'; ?>
 	

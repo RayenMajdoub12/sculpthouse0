@@ -80,7 +80,7 @@ if(!empty($_POST)){
     // Email ID from which you want to send the email
     $mail->setFrom('wampmail10@gmail.com');
     // Recipient Email ID where you want to receive emails
-    $mail->addAddress('rayenmajdoub10@gmail.com');
+    $mail->addAddress($_POST['email']);
 
     $mail->isHTML(true);
     $mail->Subject = 'Verification Mail';

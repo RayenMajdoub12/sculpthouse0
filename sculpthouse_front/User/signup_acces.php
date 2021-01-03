@@ -80,11 +80,11 @@ if(!empty($_POST)){
     // Email ID from which you want to send the email
     $mail->setFrom('wampmail10@gmail.com');
     // Recipient Email ID where you want to receive emails
-    $mail->addAddress('rayenmajdoub10@gmail.com');
+    $mail->addAddress($_POST['email']);
 
     $mail->isHTML(true);
     $mail->Subject = 'Verification Mail';
-    $mail->Body = "<h3>Hi  $name <br>click on this link to  http://localhost/sculpthouse/sculpthouse_front/confirm.php?id=$user_id&token=$token <br>Thanks for joining Sculpt House family </h3>";
+    $mail->Body = "<h3>Hi  $name <br>click on this link to confirm http://localhost/sculpthouse/sculpthouse_front/confirm.php?id=$user_id&token=$token <br>Thanks for joining Sculpt House family </h3>";
 
     $mail->send();
     $output = '<div class="alert alert-success">
@@ -101,15 +101,8 @@ if(!empty($_POST)){
 exit();  
  }
  ?>
- <?php if(!empty($errors)):?>
- <div class="alert alert-danger">
- <p> you have not completed the form correctly  </p>
- <ul>  
- <?php foreach($errors as $error):?>
-    <li> <?= $error; ?>   </li>
- <?php endforeach; ?>
- </ul>
- <div class="small"><a href="../signup.php">signup</a></div>
-</div>
-<?php endif; ?>
+ <?php if(!empty($errors))
+
+header("location:../signup.php? errors=" . urlencode(serialize($errors)) . " ");
+?>
 	

@@ -26,7 +26,7 @@ $user = $req->fetch();
             $errors['checkbox'] = 'Please check on the reCAPTCHA box.'; 
         } 
     
-if($user && $status!='error')
+if($user && $status!='error'&&$user->confirmed_at!=Null)
 {
     session_start();
 $_SESSION['auth']=$user;

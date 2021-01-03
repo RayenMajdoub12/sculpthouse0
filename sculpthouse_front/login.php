@@ -36,7 +36,7 @@ $secretkey='6Lc5-gQaAAAAANN71A2RpZg1F-N9-AA8aAYuoSUq';
 											</div>
 										</div>
 										<div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-											<a class="small" href="#">	Forgot your password?</a>
+											<a class="small" href="pwd_forgot.php">	Forgot your password?</a>
 											<input type=submit class="btn btn-primary" value="Connect" />
 										</div>
 										<div class="g-recaptcha" data-sitekey="<?php echo $sitekey ;?>"	data-theme="dark"></div>
