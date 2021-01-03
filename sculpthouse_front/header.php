@@ -83,22 +83,12 @@ if(session_status()==PHP_SESSION_NONE ){
 						<ul>
 							<li class="active"><a href="index.php">Home</a></li>
 							<li><a href="coaching.php">Trainer</a></li>
-							<li><a href="shop.php">Shop</a></li>
-							
-							<li class="has-dropdown">
-								<a href="blog.php">Blog</a>
-								<ul class="dropdown">
-									<li><a href="#">Web Design</a></li>
-									<li><a href="#">eCommerce</a></li>
-									<li><a href="#">Branding</a></li>
-									<li><a href="#">API</a></li>
-								</ul>
-							</li>
-							<li><a href="contact.php">Contact</a></li>
-							<?php if(isset($_SESSION['auth'])&&$_SESSION['auth']->type=='user'):?>
+							<li><a href="shop.php">Shop</a></li>	
+							<li><a href="#">Events</a></li>	
+							<?php if((isset($_SESSION['auth']))&&($_SESSION['auth']->type=='user')):?>
 							    <li><a href="profile.php">My profile</a></li>
 								<li><a href="logout.php">Logout</a></li>
-								<li><a href="panier.php">Shoping Cart</a></li>
+								<li><a href="mescommandes.php">Shoping Cart</a></li>
 								<?php elseif((isset($_SESSION['auth']))&& ($_SESSION['auth']->type=='employee')):?>
 									<li><a href="profile.php">My profile</a></li>
 								<li><a href="logout.php">Logout</a></li>
