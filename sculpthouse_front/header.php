@@ -84,7 +84,7 @@ if(session_status()==PHP_SESSION_NONE ){
 							<li class="active"><a href="index.php">Home</a></li>
 							<li><a href="coaching.php">Trainer</a></li>
 							<li><a href="shop.php">Shop</a></li>	
-							<li><a href="#">Events</a></li>	
+							<li><a href="../gestion-event/Views/Front/index.php">Events</a></li>	
 							<?php if((isset($_SESSION['auth']))&&($_SESSION['auth']->type=='user')):?>
 							    <li><a href="profile.php">My profile</a></li>
 								<li><a href="logout.php">Logout</a></li>

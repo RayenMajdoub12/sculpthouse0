@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 03, 2021 at 10:42 PM
+-- Generation Time: Jan 04, 2021 at 06:13 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -67,6 +67,22 @@ CREATE TABLE IF NOT EXISTS `commandes` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `dilevery`
+--
+
+DROP TABLE IF EXISTS `dilevery`;
+CREATE TABLE IF NOT EXISTS `dilevery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `commande_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `location` text NOT NULL,
+  `city` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `employee`
 --
 
@@ -103,6 +119,51 @@ INSERT INTO `employee` (`id`, `firstname`, `lastname`, `birthday`, `phone`, `ema
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE IF NOT EXISTS `event` (
+  `eventId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `venue` int(11) NOT NULL,
+  `startDate` datetime NOT NULL,
+  `endDate` datetime NOT NULL,
+  `places` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY (`eventId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE IF NOT EXISTS `events` (
+  `EventsID` int(11) NOT NULL,
+  `Name` varchar(20) NOT NULL,
+  `EventsD` date NOT NULL,
+  `heureE` time NOT NULL,
+  `description` text NOT NULL,
+  `img_id` int(11) DEFAULT NULL,
+  KEY `img_id` (`img_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`EventsID`, `Name`, `EventsD`, `heureE`, `description`, `img_id`) VALUES
+(12345, 'Saut en hauteur', '2021-01-05', '16:00:00', 'fortifier le corps', NULL),
+(78945, 'football', '2021-01-13', '17:00:00', 'love Messi', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `job_app`
 --
 
@@ -132,6 +193,22 @@ CREATE TABLE IF NOT EXISTS `job_app` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `participants`
+--
+
+DROP TABLE IF EXISTS `participants`;
+CREATE TABLE IF NOT EXISTS `participants` (
+  `participantId` int(11) NOT NULL AUTO_INCREMENT,
+  `eventId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  PRIMARY KEY (`participantId`),
+  KEY `fk_user_id` (`userId`),
+  KEY `fk_event_id` (`eventId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pwdreset`
 --
 
@@ -150,6 +227,30 @@ CREATE TABLE IF NOT EXISTS `pwdreset` (
 
 INSERT INTO `pwdreset` (`id`, `pwd_reset_token`, `pwd_reset_expires`, `pwd_reset_email`) VALUES
 (6, '27mvtkZKC7', '1609645168', 'bbahta11@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reclamation`
+--
+
+DROP TABLE IF EXISTS `reclamation`;
+CREATE TABLE IF NOT EXISTS `reclamation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `id_user` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_user_id` (`id_user`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reclamation`
+--
+
+INSERT INTO `reclamation` (`id`, `titre`, `description`, `date`, `id_user`) VALUES
+(8, 'www', 'www', '2020-12-20', 2);
 
 -- --------------------------------------------------------
 
@@ -195,18 +296,31 @@ CREATE TABLE IF NOT EXISTS `tbl_product` (
   `price` double(10,2) NOT NULL,
   `quantite` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`id`, `name`, `image`, `price`, `quantite`) VALUES
-(1, 'protein whey', '../imgUploads/1609682155.jpg', 60.00, 50),
-(2, 'protein whey', '../sculpthouse_front/imgUploads/1609682332.jpg', 60.00, 50),
-(3, 'protein whey', '../sculpthouse_front/imgUploads/1609682364.jpg', 60.00, 50),
-(4, 'protein whey', '../sculpthouse_front/imgUploads/1609682391.jpg', 60.00, 10),
-(5, 'jaja', '../sculpthouse_front/imgUploads/1609683183.jpg', 61.00, 54);
+(6, 'whey', '../sculpthouse_front/imgUploads/1609720021.png', 10.00, 40),
+(7, 'yuazjn', '../sculpthouse_front/imgUploads/1609720922.png', 52.00, 85),
+(8, 'yuazjn', '../sculpthouse_front/imgUploads/1609721337.png', 52.00, 85);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -235,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `confirmed_at` date DEFAULT NULL,
   `type` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -244,7 +358,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `birthday`, `phone`, `email`, `height`, `weight`, `goalweight`, `sport`, `country`, `zipcode`, `username`, `gender`, `password`, `confirmation_token`, `confirmed_at`, `type`) VALUES
 (47, 'arezr', 'aze', '2021-01-02', 8545455, 'azkeaz@gmail.com', 51, 21, 51, '51', 'zkalza', 5155, 'zaaz', 'male', 'az', '3IF1vnFAzhoNNjW2pdgt', NULL, 'user'),
 (46, 'rayen', 'kaka', '2021-01-23', 85858569, 'bbahta11@gmail.com', 54, 74, 62, 'zadaz', 'tauijz', 2563, 'jaja', 'male', 'kaka', NULL, '2021-01-02', 'user'),
-(45, 'janjoon', 'koko', '2020-12-13', 85555555, 'zaea@gmail884.com', 44, 54, 21, 'azzzzzzzzz', 'azidk', 8595, 'lilaok', 'male', 'lilaok', 'j6RQ6y0BiCkJBay8kz0u', NULL, 'user');
+(45, 'janjoon', 'koko', '2020-12-13', 85555555, 'zaea@gmail884.com', 44, 54, 21, 'azzzzzzzzz', 'azidk', 8595, 'lilaok', 'male', 'lilaok', 'j6RQ6y0BiCkJBay8kz0u', NULL, 'user'),
+(48, 'zdqazd', 'azdaz', '2021-01-18', 8754, 'rayen@azdbhj.com', 55, 65, 51, 'zadadz', 'zadaz', 1555, 'papa', 'male', 'papa', 'N47QsJcvhYScqe58rSKF', NULL, 'user');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

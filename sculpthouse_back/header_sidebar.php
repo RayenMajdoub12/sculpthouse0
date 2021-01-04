@@ -98,7 +98,16 @@ header('location:login.php');
               <li><a href="employee.php">Employees</a></li>
             </ul>
           </li>
-          <li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-shopping-cart"></i>
+              <span>Event Management</span>
+              </a>
+            <ul class="sub">
+              <li><a href="../gestion-event/Views/Back/index.php">Manegment</a></li>
+            
+            </ul>
+          </li>
             
         <!-- sidebar menu end-->
       </div>
