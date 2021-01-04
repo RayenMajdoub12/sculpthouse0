@@ -52,7 +52,7 @@ function filterTable($query)
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
 
 
-						<img src="images/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
+						<img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
 
 						<h4 class="text-info"><?php echo $row["name"]; ?></h4>
 
