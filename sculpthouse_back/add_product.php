@@ -109,7 +109,7 @@ $req->execute([$_POST['name'],"../sculpthouse_front/imgUploads/".$date->getTimes
                   <div class="form-group ">
                     <label for="Quantity" class="control-label col-lg-2">Quantity (required)</label>
                     <div class="col-lg-10">
-                      <input type="number" name="quantite"  min="1" step="any">
+                      <input type="number" name="quantite"  min="1" step="any" >
                     </div>
                   </div> 
                    <div class="form-group ">
