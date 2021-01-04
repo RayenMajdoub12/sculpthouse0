@@ -75,7 +75,7 @@ $commandes = $connect->query("SELECT * FROM `commandes` WHERE `commandes`.`useri
 			<?php
 					}
 					?>
-					<button type="button" onclick="window.location.href = 'levraison.php?'" style="float:right;" class="btn btn-success">Delivery</button>
+					<button type="button" onclick="window.location.href = 'levraison.php'" style="float:right;" class="btn btn-success">Delivery</button>
 			
 
 		</div>
