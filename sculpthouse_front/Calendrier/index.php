@@ -103,6 +103,11 @@
   <br />
   <div class="container">
    <div id="calendar"></div>
+   <div class="container text-center">
+<div class="row">
+   <button type="button" onclick="window.location.href = '../index.php'" style="float:right;" class="btn btn-success">Back Home</button>
+   </div>
+   </div>
   </div>
  </body>
 </html>

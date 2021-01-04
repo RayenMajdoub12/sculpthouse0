@@ -97,7 +97,7 @@ if(session_status()==PHP_SESSION_NONE ){
 								<ul class="dropdown">
 							<li><a href="seance.php">Online Session</a></li>
 							<!----ajouter des autre page ici (edoa)--->
-							<li><a href="program.php">Program</a></li>
+							<li><a href="Calendrier/index.php">My calendar</a></li>
 							</ul>
 							</li>
 							<?php else :?>
