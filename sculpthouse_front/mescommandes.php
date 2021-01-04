@@ -63,7 +63,7 @@ $commandes = $connect->query("SELECT * FROM `commandes` WHERE `commandes`.`useri
 
 
 
-							<a href="admin/deleteCommande.php?id=<?php echo $row["id"]; ?>"><span class="text-danger">Remove</span></a>
+							<a href="../sculpthouse_back/deleteCommande.php?id=<?php echo $row["id"]; ?>"><span class="text-danger">Remove</span></a>
 						</td>
 					</tr>
 					
