@@ -130,7 +130,7 @@ exit();
 
 <!-----profile of employee------------>
 
-<?php var_dump($_SESSION['auth']);
+<?php 
 if($_SESSION['auth']->type =='employee'):?>
 <div id="fh5co-gallery">
 		<div class="container ">
