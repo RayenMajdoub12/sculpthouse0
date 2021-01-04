@@ -1,6 +1,5 @@
 <?php require 'header.php';?>
 <?php 
-echo "hi";
 
 $connect = mysqli_connect("localhost", "root", "", "sculpt");
 $userid = $_SESSION['auth']->id;
