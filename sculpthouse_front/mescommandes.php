@@ -25,7 +25,7 @@ $commandes = $connect->query("SELECT * FROM `commandes` WHERE `commandes`.`useri
 			<br />
 			<h3>My Orders</h3>
 			<?php
-
+						$counter = 0;
                       while($row = $commandes->fetch_assoc()) {  
                       	$cart = json_decode($row["cart"], true);
                       ?>
@@ -41,8 +41,19 @@ $commandes = $connect->query("SELECT * FROM `commandes` WHERE `commandes`.`useri
 					</tr>
 					<?php
 						$total = 0;
+												$counter2 = 0;
+
 						foreach($cart as $keys => $values)
 						{
+
+
+
+							$theFinalObject[$counter][$counter2][] = $values["item_name"];
+							$theFinalObject[$counter][$counter2][] = $values["item_quantity"];
+							$theFinalObject[$counter][$counter2][] = $values["item_price"];
+							$theFinalObject[$counter][$counter2][] = $values["item_quantity"] * $values["item_price"];
+
+$counter2++;
 					?>
 					<tr>
 						<td><?php echo $values["item_name"]; ?></td>
@@ -68,11 +79,16 @@ $commandes = $connect->query("SELECT * FROM `commandes` WHERE `commandes`.`useri
 					
 						
 				</table>
-				
+							<a type="submit" onclick="generateTable(<?php echo $counter;?>)" name="action" style="margin-top:5px;" class="btn btn-success">Export PDF</a>
+							<br>
+							<br>
+							<br>
+
 
 			</div>
 
 			<?php
+			$counter++;
 					}
 					?>
 					<button type="button" onclick="window.location.href = 'levraison.php'" style="float:right;" class="btn btn-success">Delivery</button>
@@ -122,20 +138,37 @@ $commandes = $connect->query("SELECT * FROM `commandes` WHERE `commandes`.`useri
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
 		    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="libs/jspdf.umd.js"></script>
+    <script src="dist/jspdf.plugin.autotable.js"></script>
 
 	<script src="js/main.js"></script>
 	<script>
 var notyf = new Notyf();
-<?php
-if($commandePasse)
+
+
+
+
+
+
+
+var allstuff = <?php echo json_encode($theFinalObject); ?>;
+
+function generateTable(num)
 {
-	echo "notyf.success('Commande Passé!');";
+	
+	var doc = new jspdf.jsPDF()
+
+// Simple data example
+
+
+var head = [['Item Name', 'Quantité', 'Prix', 'Total']]
+var body = allstuff[num];
+doc.autoTable({ head: head, body: body });
+
+doc.save('table.pdf');
+
+
 }
-
-
-
-
-?>
 	</script>
 	</body>
 </html>

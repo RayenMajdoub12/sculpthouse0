@@ -23,7 +23,7 @@
 											<div class="col-md-6">
 											<div class="form-group">
 											<label class="small mb-1" for="id">Your ID</label>
-											<input class=" form-control" name="id" type="text" value="<?= $_SESSION['auth']->id;?>"/>
+											<input class=" form-control" name="id" type="int" value="<?= $_SESSION['auth']->id;?>"/>
 										<div class="form-group">
 											<label class="small mb-1" for="location">Location</label>
 											<input class="form-control py-4"  name="location" type="text"  placeholder="Type your local adress" required/>
