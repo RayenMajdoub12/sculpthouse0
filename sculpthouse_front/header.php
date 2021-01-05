@@ -98,11 +98,11 @@ if(session_status()==PHP_SESSION_NONE ){
 							         <li><a href="AffichermesForms.php">mes Pubs</a></li>
 								<li><a href="logout.php">Logout</a></li>
 								<li class="has-dropdown">
-								<a href="#">My Workspace</a>
+								<a href="#">Workspace</a>
 								<ul class="dropdown">
 							<li><a href="seance.php">Online Session</a></li>
 							<!----ajouter des autre page ici (edoa)--->
-							<li><a href="Calendrier/index.php">My calendar</a></li>
+							<li><a href="Calendrier/CalendrierCoach/index.php">My calendar</a></li>
 							</ul>
 							</li>
 							<?php else :?>
