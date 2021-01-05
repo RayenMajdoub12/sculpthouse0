@@ -17,5 +17,6 @@ foreach($unecmd as $commande)
      $req=$pdo->prepare("INSERT INTO dilevery SET commande_id=? , user_id = ?,location=?, city=?");
      $req->execute([$commande->id,$userid,$location,$city]) ;
 }
+header("location:success_dilevery.php?id=$userid");
 }
 ?>
