@@ -84,13 +84,18 @@ if(session_status()==PHP_SESSION_NONE ){
 							<li class="active"><a href="index.php">Home</a></li>
 							<li><a href="coaching.php">Trainer</a></li>
 							<li><a href="shop.php">Shop</a></li>	
-							<li><a href="../gestion-event/Views/Front/index.php">Events</a></li>	
+							<li><a href="AfficherEvent.php">Events</a></li>	
 							<?php if((isset($_SESSION['auth']))&&($_SESSION['auth']->type=='user')):?>
 							    <li><a href="profile.php">My profile</a></li>
+							        <li><a href="AfficherForms.php">Pubs</a></li>
+							         <li><a href="AffichermesForms.php">mes Pubs</a></li>
+							            <li><a href="profile.php">My profile</a></li>
 								<li><a href="logout.php">Logout</a></li>
 								<li><a href="mescommandes.php">Shoping Cart</a></li>
 								<?php elseif((isset($_SESSION['auth']))&& ($_SESSION['auth']->type=='employee')):?>
 									<li><a href="profile.php">My profile</a></li>
+									      <li><a href="AfficherForms.php">Pubs</a></li>
+							         <li><a href="AffichermesForms.php">mes Pubs</a></li>
 								<li><a href="logout.php">Logout</a></li>
 								<li class="has-dropdown">
 								<a href="#">My Workspace</a>

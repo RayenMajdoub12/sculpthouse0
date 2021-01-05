@@ -98,6 +98,36 @@ header('location:login.php');
               <li><a href="employee.php">Employees</a></li>
             </ul>
           </li>
+                  <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-bars"></i>
+              <span>Categorie</span>
+              </a>
+            <ul class="sub">
+              <li><a href="AjouterCategorie.php">Ajout Categorie</a></li>
+             <li><a href="AfficherCategorie.php">list Categorie</a></li>
+            </ul>
+          </li>
+                   <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-bars"></i>
+              <span>Event</span>
+              </a>
+            <ul class="sub">
+              <li><a href="AjouterEvent.php">Ajout Event</a></li>
+             <li><a href="AfficherEvent.php">list Event</a></li>
+            </ul>
+          </li>
+                      <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-bars"></i>
+              <span>Forms</span>
+              </a>
+            <ul class="sub">
+              <li><a href="AfficherForms.php">list Forms</a></li>
+   
+            </ul>
+          </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-shopping-cart"></i>
